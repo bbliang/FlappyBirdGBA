@@ -73,6 +73,8 @@ int main() {
     int startKeypress = 0;
     int upKeypress = 0;
 
+    int count = 0;
+
     // main loop
     while (1) {
         waitForVBlank();
