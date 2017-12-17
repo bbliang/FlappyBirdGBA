@@ -30,7 +30,7 @@ enum GameState
 
 //const
 const int pipeMargin = 1;
-const int delayTime = 1;
+const int delayTime = 100;
 const int flyHeight = 5;
 const int gravity = 1;
 const int pipeSpeed = 1;
@@ -58,6 +58,7 @@ void drawBackground(const u16 *image);
 
 //variables & pointers
 int score = 0;
+int count = 0;
 BIRD birb;
 PIPE *pipes;
 PIPE *currPipe;
@@ -72,8 +73,6 @@ int main() {
     //keystroke from last frame
     int startKeypress = 0;
     int upKeypress = 0;
-
-    int count = 0;
 
     // main loop
     while (1) {
@@ -94,7 +93,7 @@ int main() {
               state = PLAY;
           }
         }
-        else if (state == PLAY)
+        else if (state == PLAY && count % 2 == 0)
         {
             clearItems(background);
             movePipes();
@@ -166,6 +165,7 @@ int main() {
             upKeypress = 0;
         }
 
+        count++;
       }
 }
 
